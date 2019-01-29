@@ -199,3 +199,70 @@ PUT /api/maps/5c50070c10449e45ec4beaa4
     "__v": 0
 }
 ```
+
+맵정보 수정
+
+### Request Body
+PUT /api/maps/5c500e8810449e45ec4beaaa
+```json
+{
+	"title": "API TEST2",
+	"mapData": [
+        {
+            "blockID": 10,
+            "iIndex": 62
+        },
+        {
+            "blockID": 13,
+            "iIndex": 14
+        },
+        {
+            "blockID": 13,
+            "iIndex": 92
+        },
+        {
+            "blockID": 3,
+            "iIndex": 4
+        }
+    ]
+}
+```
+
+### Response
+PUT /api/maps/5c500e8810449e45ec4beaaa
+```json
+{
+    "bestScore": {
+        "user": "retan",
+        "score": 12897734
+    },
+    "count": 0,
+    "createDate": "2019-01-29T07:28:15.947Z",
+    "_id": "5c500e8810449e45ec4beaaa",
+    "title": "API TEST2",
+    "owner": "retan",
+    "mapData": [
+        {
+            "_id": "5c500f4c10449e45ec4beab7",
+            "blockID": 10,
+            "iIndex": 62
+        },
+        {
+            "_id": "5c500f4c10449e45ec4beab6",
+            "blockID": 13,
+            "iIndex": 14
+        },
+        {
+            "_id": "5c500f4c10449e45ec4beab5",
+            "blockID": 13,
+            "iIndex": 92
+        },
+        {
+            "_id": "5c500f4c10449e45ec4beab4",
+            "blockID": 3,
+            "iIndex": 4
+        }
+    ],
+    "__v": 0
+}
+```
