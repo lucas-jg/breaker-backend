@@ -18,9 +18,8 @@ Koa, MongoDB를 사용한 API 서버이며
 param은 생략가능하며, owner 입력시 해당 user에 대한 리스트만 조회합니다.
 
 ### Response
-
-```json
 GET /api/maps
+```json
 {
         "_id": "5c4ffb83484f0349341a1e32",
         "title": "retan Title1",
@@ -41,9 +40,8 @@ GET /api/maps
 },
 (...)
 ```
-
-```json
 GET /api/maps?owner=lucas
+```json
 {
         "_id": "5c4ffb83484f0349341a1e48",
         "title": "lucas Title1",
@@ -64,9 +62,8 @@ GET /api/maps?owner=lucas
 > POST /api/maps
 
 ### Request Body
-
-```json
 POST /api/maps
+```json
 {
 	"title":"delete test",
 	"owner":"lucas",
@@ -86,9 +83,8 @@ POST /api/maps
 Request body에 포함되지 않는 field는 자동으로 채워집니다.
 
 ### Response
-
-```json
 POST /api/maps
+```json
 {
     "bestScore": {
         "user": "uknown",
@@ -120,9 +116,8 @@ POST /api/maps
 > GET /api/maps/:id
 
 ### Response
-
-```json
 GET /api/maps/5c50070c10449e45ec4beaa4
+```json
 {
     "bestScore": {
         "user": "uknown",
@@ -154,9 +149,8 @@ GET /api/maps/5c50070c10449e45ec4beaa4
 > DELETE /api/maps/:id
 
 ### Response
-
-```json
 DELETE /api/maps/5c50070c10449e45ec4beaa4
+```json
 {}
 ```
 
@@ -167,9 +161,8 @@ DELETE /api/maps/5c50070c10449e45ec4beaa4
 모든필드에 대해 수정이 가능하며, 그중 bestScore를 수정하는 예입니다.
 
 ### Request Body
-
-```json
 PUT /api/maps/5c50070c10449e45ec4beaa4
+```json
 {
 	"bestScore" : {
 		"user" : "lucas",
@@ -179,9 +172,8 @@ PUT /api/maps/5c50070c10449e45ec4beaa4
 ```
 
 ### Response
-
-```json
 PUT /api/maps/5c50070c10449e45ec4beaa4
+```json
 {
     "bestScore": {
         "user": "lucas",
