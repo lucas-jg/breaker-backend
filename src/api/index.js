@@ -1,9 +1,8 @@
 const Router = require("koa-router");
+const maps = require("./maps");
 
 const api = new Router();
 
-api.get("/test", ctx => {
-    ctx.body = "모듈화 테스트";
-});
+api.use("/maps", maps.routes());
 
 module.exports = api;
