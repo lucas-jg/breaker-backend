@@ -6,9 +6,11 @@
     "author": "Lucas <kjk727@me.com>",
     "license": "MIT",
     "dependencies": {
+        "dotenv": "^6.2.0",
         "koa": "^2.7.0",
         "koa-bodyparser": "^4.2.1",
-        "koa-router": "^7.4.0"
+        "koa-router": "^7.4.0",
+        "mongoose": "^5.4.7"
     },
     "devDependencies": {
         "nodemon": "^1.18.9"
