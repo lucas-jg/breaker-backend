@@ -7,7 +7,6 @@ maps.get("/", mapsCtrl.list);
 maps.post("/", mapsCtrl.upload);
 maps.get("/:id", mapsCtrl.detail);
 maps.delete("/:id", mapsCtrl.remove);
-maps.put("/:id", mapsCtrl.replace);
-maps.put("/score/:id", mapsCtrl.replaceScore);
+maps.put("/:id", mapsCtrl.update);
 
 module.exports = maps;
