@@ -1,11 +1,12 @@
-const mongoose = require("mongoose");
+const mongoose = require('mongoose')
 
-const { Schema } = mongoose;
+const { Schema } = mongoose
 
 const MapData = new Schema({
+    ItemID: Number,
     blockID: Number,
     iIndex: Number
-});
+})
 
 const Map = new Schema({
     title: String,
@@ -17,7 +18,7 @@ const Map = new Schema({
     bestScore: {
         user: {
             type: String,
-            default: "uknown"
+            default: 'uknown'
         },
         score: {
             type: Number,
@@ -29,6 +30,6 @@ const Map = new Schema({
         type: Date,
         default: new Date()
     }
-});
+})
 
-module.exports = mongoose.model("Map", Map);
+module.exports = mongoose.model('Map', Map)
