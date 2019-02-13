@@ -3,7 +3,7 @@ const mongoose = require('mongoose')
 const { Schema } = mongoose
 
 const MapData = new Schema({
-    ItemID: Number,
+    itemID: Number,
     blockID: Number,
     iIndex: Number
 })
