@@ -4,8 +4,9 @@ POST /api/maps -> pw 받음
 pw 확인 후 맞으면 수정 삭제 하도록
 DELETE /api/maps/:id
 PUT /api/maps/:id 
-
-DELETE /api/maps/:id
 헤더 확인
 "Password" : value
 
+
+ADD PUT function
+PUT api/maps/score/:id
