@@ -6,8 +6,6 @@ DELETE /api/maps/:id
 PUT /api/maps/:id 
 
 DELETE /api/maps/:id
-{
-	"password" : "wefoijwefoewifjweoifj"
-}
-
+헤더 확인
+"Password" : value
 
