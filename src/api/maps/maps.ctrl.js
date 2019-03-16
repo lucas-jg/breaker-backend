@@ -6,13 +6,16 @@ const HttpStatus = require('http-status-codes')
  * POST /api/maps
  */
 exports.upload = async ctx => {
-    const { title, owner, mapData } = ctx.request.body
+    const { title, owner, mapData, password } = ctx.request.body
 
     const map = new Map({
         title,
         owner,
-        mapData
+        mapData,
+        password
     })
+
+    console.log(map)
 
     try {
         await map.save()
@@ -32,7 +35,8 @@ exports.list = async ctx => {
     const fieldQuery = {
         createDate: 0,
         mapData: 0,
-        count: 0
+        count: 0,
+        password: 0
     }
     try {
         const maps = await Map.find(query, fieldQuery)
@@ -71,6 +75,7 @@ exports.detail = async ctx => {
  */
 exports.remove = async ctx => {
     const { id } = ctx.params
+
     try {
         await Map.findByIdAndRemove(id).exec()
         ctx.status = HttpStatus.NO_CONTENT
@@ -85,6 +90,7 @@ exports.remove = async ctx => {
  */
 exports.update = async ctx => {
     const { id } = ctx.params
+
     try {
         const map = await Map.findByIdAndUpdate(id, ctx.request.body, {
             new: true
@@ -92,6 +98,7 @@ exports.update = async ctx => {
 
         if (!map) {
             ctx.status = HttpStatus.NOT_FOUND
+            ctx.body = 'ID를 찾을 수 없음'
             return
         }
 
@@ -99,4 +106,70 @@ exports.update = async ctx => {
     } catch (e) {
         ctx.throw(e, HttpStatus.INTERNAL_SERVER_ERROR)
     }
+}
+
+/**
+ * Map bestScore 수정
+ * PUT /api/maps/score/:id
+ */
+exports.updateScore = async ctx => {
+    const { id } = ctx.params
+    const { bestScore } = ctx.request.body
+
+    const score = bestScore && {
+        bestScore: bestScore
+    }
+
+    try {
+        // Score가 없는 경우 Error
+        if (typeof score === 'undefined') {
+            console.log('undefined bestScore')
+            ctx.status = HttpStatus.INTERNAL_SERVER_ERROR
+            ctx.body = 'undefined bestScore'
+            return
+        }
+
+        const map = await Map.findByIdAndUpdate(id, score, {
+            new: true
+        }).exec()
+
+        if (!map) {
+            ctx.status = HttpStatus.NOT_FOUND
+            ctx.body = 'ID를 찾을 수 없음'
+            return
+        }
+
+        ctx.body = map
+    } catch (e) {
+        ctx.throw(e, HttpStatus.INTERNAL_SERVER_ERROR)
+    }
+}
+
+/**
+ * Header에서 Password를 검증하는 것
+ */
+exports.checkPassword = async (ctx, next) => {
+    const { id } = ctx.params
+    const { password } = ctx.request.header
+
+    try {
+        const map = await Map.findById(id).exec()
+        if (!map) {
+            ctx.status = HttpStatus.NOT_FOUND
+            ctx.body = 'ID를 찾을 수 없음'
+            return
+        }
+
+        if (map.password && map.password !== password) {
+            ctx.status = HttpStatus.NOT_ACCEPTABLE
+            ctx.body = '패스워드가 다름'
+            return
+        }
+    } catch (e) {
+        ctx.throw(e, HttpStatus.INTERNAL_SERVER_ERROR)
+    }
+
+    console.log('Password 검증 통과 : ' + password)
+
+    return next()
 }

@@ -29,7 +29,8 @@ const Map = new Schema({
     createDate: {
         type: Date,
         default: new Date()
-    }
+    },
+    password: String
 })
 
 module.exports = mongoose.model('Map', Map)

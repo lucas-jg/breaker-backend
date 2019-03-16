@@ -18,7 +18,9 @@ Koa, MongoDB를 사용한 API 서버이며
 param은 생략가능하며, owner 입력시 해당 user에 대한 리스트만 조회합니다.
 
 ### Response
+
 GET /api/maps
+
 ```json
 {
         "_id": "5c4ffb83484f0349341a1e32",
@@ -40,7 +42,9 @@ GET /api/maps
 },
 (...)
 ```
+
 GET /api/maps?owner=lucas
+
 ```json
 {
         "_id": "5c4ffb83484f0349341a1e48",
@@ -62,28 +66,33 @@ GET /api/maps?owner=lucas
 > POST /api/maps
 
 ### Request Body
+
 POST /api/maps
+
 ```json
 {
-	"title":"delete test",
-	"owner":"lucas",
-	"mapData":[
-		{
-			"blockID":10,
-			"iIndex":68
-		},
-		{
-			"blockID":10,
-			"iIndex":94
-		}
-	]
+    "title": "delete test",
+    "owner": "lucas",
+    "mapData": [
+        {
+            "blockID": 10,
+            "iIndex": 68
+        },
+        {
+            "blockID": 10,
+            "iIndex": 94
+        }
+    ],
+    "password": "woeijewoij"
 }
 ```
 
 Request body에 포함되지 않는 field는 자동으로 채워집니다.
 
 ### Response
+
 POST /api/maps
+
 ```json
 {
     "bestScore": {
@@ -116,7 +125,9 @@ POST /api/maps
 > GET /api/maps/:id
 
 ### Response
+
 GET /api/maps/5c50070c10449e45ec4beaa4
+
 ```json
 {
     "bestScore": {
@@ -149,7 +160,9 @@ GET /api/maps/5c50070c10449e45ec4beaa4
 > DELETE /api/maps/:id
 
 ### Response
+
 DELETE /api/maps/5c50070c10449e45ec4beaa4
+
 ```json
 {}
 ```
@@ -161,18 +174,22 @@ DELETE /api/maps/5c50070c10449e45ec4beaa4
 모든필드에 대해 수정이 가능하며, 그중 bestScore를 수정하는 예입니다.
 
 ### Request Body
+
 PUT /api/maps/5c50070c10449e45ec4beaa4
+
 ```json
 {
-	"bestScore" : {
-		"user" : "lucas",
-		"score" : 12312321
-	}
+    "bestScore": {
+        "user": "lucas",
+        "score": 12312321
+    }
 }
 ```
 
 ### Response
+
 PUT /api/maps/5c50070c10449e45ec4beaa4
+
 ```json
 {
     "bestScore": {
@@ -203,11 +220,13 @@ PUT /api/maps/5c50070c10449e45ec4beaa4
 맵정보 수정
 
 ### Request Body
+
 PUT /api/maps/5c500e8810449e45ec4beaaa
+
 ```json
 {
-	"title": "API TEST2",
-	"mapData": [
+    "title": "API TEST2",
+    "mapData": [
         {
             "blockID": 10,
             "iIndex": 62
@@ -229,7 +248,9 @@ PUT /api/maps/5c500e8810449e45ec4beaaa
 ```
 
 ### Response
+
 PUT /api/maps/5c500e8810449e45ec4beaaa
+
 ```json
 {
     "bestScore": {
