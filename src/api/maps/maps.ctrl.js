@@ -79,6 +79,7 @@ exports.remove = async ctx => {
     try {
         await Map.findByIdAndRemove(id).exec()
         ctx.status = HttpStatus.NO_CONTENT
+        ctx.body = `id[${id}] 삭제 완료`
     } catch (e) {
         ctx.throw(e, HttpStatus.INTERNAL_SERVER_ERROR)
     }
