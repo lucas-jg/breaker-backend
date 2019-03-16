@@ -83,7 +83,7 @@ POST /api/maps
             "iIndex": 94
         }
     ],
-    "password": "woeijewoij"
+    "password": "password"
 }
 ```
 
@@ -116,6 +116,7 @@ POST /api/maps
             "iIndex": 94
         }
     ],
+    "password": "password",
     "__v": 0
 }
 ```
@@ -151,6 +152,7 @@ GET /api/maps/5c50070c10449e45ec4beaa4
             "iIndex": 94
         }
     ],
+    "password": "password",
     "__v": 0
 }
 ```
@@ -158,6 +160,10 @@ GET /api/maps/5c50070c10449e45ec4beaa4
 ## Map 삭제
 
 > DELETE /api/maps/:id
+
+### Header
+
+password 추가 필요
 
 ### Response
 
@@ -171,51 +177,9 @@ DELETE /api/maps/5c50070c10449e45ec4beaa4
 
 > PUT /api/maps/:id
 
-모든필드에 대해 수정이 가능하며, 그중 bestScore를 수정하는 예입니다.
+### Header
 
-### Request Body
-
-PUT /api/maps/5c50070c10449e45ec4beaa4
-
-```json
-{
-    "bestScore": {
-        "user": "lucas",
-        "score": 12312321
-    }
-}
-```
-
-### Response
-
-PUT /api/maps/5c50070c10449e45ec4beaa4
-
-```json
-{
-    "bestScore": {
-        "user": "lucas",
-        "score": 12312321
-    },
-    "count": 0,
-    "createDate": "2019-01-29T07:28:15.947Z",
-    "_id": "5c50070c10449e45ec4beaa4",
-    "title": "delete test",
-    "owner": "lucas",
-    "mapData": [
-        {
-            "_id": "5c50070c10449e45ec4beaa6",
-            "blockID": 10,
-            "iIndex": 68
-        },
-        {
-            "_id": "5c50070c10449e45ec4beaa5",
-            "blockID": 10,
-            "iIndex": 94
-        }
-    ],
-    "__v": 0
-}
-```
+password 추가 필요
 
 맵정보 수정
 
@@ -282,6 +246,54 @@ PUT /api/maps/5c500e8810449e45ec4beaaa
             "_id": "5c500f4c10449e45ec4beab4",
             "blockID": 3,
             "iIndex": 4
+        }
+    ],
+    "__v": 0
+}
+```
+
+## BestScore 수정
+
+### Request Body
+
+PUT /api/maps/score/5c50070c10449e45ec4beaa4
+
+비밀번호가 필요하지 않습니다
+
+```json
+{
+    "bestScore": {
+        "user": "lucas",
+        "score": 12312321
+    }
+}
+```
+
+### Response
+
+PUT /api/maps/score/5c50070c10449e45ec4beaa4
+
+```json
+{
+    "bestScore": {
+        "user": "lucas",
+        "score": 12312321
+    },
+    "count": 0,
+    "createDate": "2019-01-29T07:28:15.947Z",
+    "_id": "5c50070c10449e45ec4beaa4",
+    "title": "delete test",
+    "owner": "lucas",
+    "mapData": [
+        {
+            "_id": "5c50070c10449e45ec4beaa6",
+            "blockID": 10,
+            "iIndex": 68
+        },
+        {
+            "_id": "5c50070c10449e45ec4beaa5",
+            "blockID": 10,
+            "iIndex": 94
         }
     ],
     "__v": 0
