@@ -35,8 +35,7 @@ exports.list = async ctx => {
     const fieldQuery = {
         createDate: 0,
         mapData: 0,
-        count: 0,
-        password: 0
+        count: 0
     }
     try {
         const maps = await Map.find(query, fieldQuery)
