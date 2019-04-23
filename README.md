@@ -1,7 +1,7 @@
 # Breaker (Server)
 
 Koa, MongoDB를 사용한 API 서버이며
-[HRetan](https://github.com/HRetan/Breaker) 게임 개발 프로젝트의 API 서버입니다.
+[HRetan/Breaker](https://github.com/HRetan/Breaker) 게임 개발 프로젝트의 API 서버입니다.
 
 ## Features
 
